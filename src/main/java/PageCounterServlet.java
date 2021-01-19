@@ -7,17 +7,20 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(
-        name = "HelloWorldServlet",
-        urlPatterns = "/hello"
+        name = "PageCounterServlet",
+        urlPatterns = "/counter"
 )
-public class HelloWorldServlet extends HttpServlet {
+
+public class PageCounterServlet extends HttpServlet {
+    private int count = 0;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
-        String name = req.getParameter("name");
-        if (name == null) name = "world";
-
-        out.println("<h1>Hello "+ name +"</h1?>");
+        String reset = req.getParameter("reset");
+        if (reset == null) count += 1;
+        else if(reset.equalsIgnoreCase("yes")) count = 0;
+        out.println("<h1> page viewed: "+count+"</h1>");
     }
 }
