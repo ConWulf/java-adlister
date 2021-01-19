@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 
 @WebServlet(
         name = "PageCounterServlet",
-        urlPatterns = "/counter"
+        urlPatterns = "/count"
 )
 
 public class PageCounterServlet extends HttpServlet {
