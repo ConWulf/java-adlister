@@ -22,11 +22,12 @@
 
         <button class="login-btn">Login</button>
     </form>
-<%--<c:if test="${pageContext.request.method.equalsIgnoreCase('post')}">--%>
-    <c:if test="${param.username.equals(\"admin\") && param.password.equals(\"password\")}">
+${param}
+<c:if test="${pageContext.request.method.equalsIgnoreCase('post')}">
+    <c:if test="${param.username.equals('admin') && param.password.equals('password')}">
        <% response.sendRedirect("profile.jsp"); %>
     </c:if>
-<%--</c:if>--%>
+</c:if>
 
 <%@include file="partials/footer.jsp"%>
 <%
