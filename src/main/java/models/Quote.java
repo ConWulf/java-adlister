@@ -1,15 +1,15 @@
 package models;
 
 public class Quote {
-    private int id;
+    private long id;
     private Author author;
     private String content;
 
     public Quote() {}
 
-    public int getId() { return id; }
+    public long getId() { return id; }
 
-    public void setId(int id) { this.id = id; }
+    public void setId(long id) { this.id = id; }
 
     public Author getAuthor() { return author; }
 
