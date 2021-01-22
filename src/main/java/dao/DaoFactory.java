@@ -1,3 +1,7 @@
+package dao;
+
+import controllers.LoginServlet;
+
 public class DaoFactory {
     private static Ads adsDao;
 
