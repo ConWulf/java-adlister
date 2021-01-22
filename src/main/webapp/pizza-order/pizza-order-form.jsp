@@ -59,8 +59,9 @@
                 </label>
             </div>
             <label for="address" class="mb-1">Address: </label>
-            <input type="text" name="address" id="address">
-            <button class="p-2 bg-green-400 mt-2 rounded-lg">Make Order</button>
+            <input type="text" name="address" id="address" class="" required>
+            <span id="check" class="hidden">Please Enter An Address</span>
+            <button id="btn" class="p-2 bg-green-400 mt-2 rounded-lg focus:outline-none focus:ring focus:ring-green-700">Make Order</button>
         </form>
     </c:when>
     <c:otherwise>
@@ -68,22 +69,41 @@
             <h1 class="my-2">Your Pizza</h1>
             <div>
                 <div class="p-3">
-                    <span>Toppings: </span>
+                    <div >Toppings</div>
+                    <hr class="w-0 px-12 mx-auto mb-2">
                    <c:forEach var="topping" items="${toppings}">
-                       <span class="hover:bg-indigo-200 cursor-pointer p-2">${topping}</span>
+                       <span class="hover:bg-indigo-200 cursor-pointer p-2 rounded-md">${topping}</span>
                    </c:forEach>
                 </div>
-               <div>Sauce - Size - Crust:</div>
-               <c:forEach var="unit" items="${pizza}">
-                   <div class="hover:bg-indigo-200 cursor-pointer p-2">${unit}</div>
-               </c:forEach>
-                <span>Send To:</span>
-                <span class="mt-3 hover:bg-indigo-200 cursor-pointer p-2">${address}</span>
+                <div>
+                   <div>Sauce - Size - Crust</div>
+                    <hr class="w-0 px-20 mx-auto mb-2">
+                   <c:forEach var="unit" items="${pizza}">
+                       <div class="hover:bg-indigo-200 cursor-pointer p-2 inline-block rounded-md">${unit}</div>
+                   </c:forEach>
+                </div>
+                <div class="my-2">
+                    <span>Send To:</span>
+                    <span class="hover:bg-indigo-200 cursor-pointer p-2 rounded-md">${address}</span>
+                </div>
             </div>
         </div>
     </c:otherwise>
 </c:choose>
 
 
+<%--<script>--%>
+<%--    document--%>
+<%--        .getElementById("btn")--%>
+<%--    .addEventListener("click", function (e) {--%>
+<%--        if (document.getElementById("address").value === "") {--%>
+<%--            e.preventDefault();--%>
+<%--            document.getElementById("check").classList.remove("hidden");--%>
+<%--            document.getElementById("address").classList.add("ring-1");--%>
+<%--            document.getElementById("address").classList.add("ring-inset");--%>
+<%--            document.getElementById("address").classList.add("ring-red-300");--%>
+<%--        }--%>
+<%--    })--%>
+<%--</script>--%>
 </body>
 </html>

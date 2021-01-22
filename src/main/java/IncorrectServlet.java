@@ -12,10 +12,10 @@ import java.io.IOException;
 public class IncorrectServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String url = req.getRequestURI();
-        req.setAttribute("url", url);
-//        String incorrect = "INCONCEIVABLE";
-//        req.setAttribute("incorrect", incorrect);
+//        String url = req.getRequestURI();
+//        req.setAttribute("url", url);
+        String msg = "INCONCEIVABLE";
+        req.setAttribute("msg", msg);
         req.getRequestDispatcher("/guessing-game/guess-result.jsp").forward(req, resp);
     }
 }

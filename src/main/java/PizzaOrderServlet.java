@@ -32,10 +32,12 @@ public class PizzaOrderServlet extends HttpServlet {
         List<String> pizza = new ArrayList<>(Arrays.asList(sauce, size, crust));
 
 
-        req.setAttribute("toppings", toppings);
         req.setAttribute("pizza", pizza);
         req.setAttribute("address", address);
+        req.setAttribute("toppings", toppings);
 
-        req.getRequestDispatcher("/pizza-order/pizza-order-form.jsp").forward(req, resp);
+        if (address.length() != 0)
+            req.getRequestDispatcher("/pizza-order/pizza-order-form.jsp").forward(req, resp);
+        else resp.sendRedirect("/pizza-order");
     }
 }

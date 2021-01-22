@@ -18,9 +18,14 @@ public class GuessServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int randomNum = (int) Math.ceil(Math.random() * 3);
-        int userNum = Integer.parseInt(req.getParameter("num"));
-        if (userNum == randomNum) resp.sendRedirect("/correct");
-        else resp.sendRedirect("/incorrect");
+        try {
+            int userNum = Integer.parseInt(req.getParameter("num"));
+            if (userNum > 3 || userNum <= 0) resp.sendRedirect("/guess");
+            else if (userNum == randomNum) resp.sendRedirect("/correct");
+            else resp.sendRedirect("/incorrect");
+        } catch (NumberFormatException nfe) {
+            resp.sendRedirect("/guess");
+        }
 
     }
 }
