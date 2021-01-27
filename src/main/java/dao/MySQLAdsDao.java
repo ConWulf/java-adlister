@@ -60,8 +60,7 @@ public class MySQLAdsDao implements Ads {
             rs.next();
             return rs.getLong(1);
         } catch (SQLException sqle) {
-            sqle.printStackTrace();
-            return -1L;
+            throw new RuntimeException("error creating add");
         }
     }
 
